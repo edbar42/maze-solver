@@ -65,5 +65,5 @@ class Cell():
       if self.has_bottom_wall:
          bottom_left_point = Point(self.__x1, self.__y2)
          bottom_right_point = Point(self.__x2, self.__y2)
-         left_wall = Line(top_left_point, bottom_left_point)
+         left_wall = Line(bottom_left_point, bottom_right_point)
          left_wall.draw(canvas, fill_color)
