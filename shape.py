@@ -41,6 +41,9 @@ class Cell():
       self.__x2 = br_x,
       self.__y1 = tl_y,
       self.__y2 = br_y,
+      self.center_x = (tl_x + br_x)/2
+      self.center_y = (tl_y + br_y)/2
+      self.center = Point(self.center_x,self.center_y)
 
 
    def draw(self, canvas, fill_color):
@@ -67,3 +70,9 @@ class Cell():
          bottom_right_point = Point(self.__x2, self.__y2)
          left_wall = Line(bottom_left_point, bottom_right_point)
          left_wall.draw(canvas, fill_color)
+
+   def draw_path(self, to_cell, canvas, undo=False):
+      # The undo flag wil be used to revert path colors
+      # in a later implementation
+      path = Line(self.center, to_cell.center)
+      path.draw(canvas, "red")
